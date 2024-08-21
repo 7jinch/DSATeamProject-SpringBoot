@@ -26,4 +26,9 @@ public class MemberLoginDTO {
   public void setPassword(String password) {
       this.password = password;
   }
+
+  @Override
+  public String toString() {
+    return "MemberLoginDTO [email=" + email + ", password=" + password + "]";
+  }
 }

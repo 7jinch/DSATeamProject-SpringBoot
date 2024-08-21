@@ -2,7 +2,7 @@ package com.example.test.service;
 
 import java.util.Optional;
 import org.springframework.stereotype.Service;
-
+import com.example.test.dto.MemberLoginDTO;
 import com.example.test.model.Member;
 import com.example.test.repository.MemberRepository;
 
@@ -26,5 +26,21 @@ public class MemberService {
   @Transactional
   public void saveMember(Member member){
     memberRepository.save(member);
+  }
+  
+  public Boolean findMemberByEmail(MemberLoginDTO memberLoginDTO) {
+    String email = memberLoginDTO.getEmail();
+    Optional<Member> findmember = memberRepository.findByEmail(email);
+    
+    // 계정이 존재하고 비밀번호도 일치하면
+    if(findmember.isPresent() && findmember.get().getPassword().equals(memberLoginDTO.getPassword())) {
+      return true;
+    }
+    else return false;
+  }
+  
+  public Member findMemberByEmail(String email) {
+    Optional<Member> findmember = memberRepository.findByEmail(email);
+    return findmember.get();
   }
 }
