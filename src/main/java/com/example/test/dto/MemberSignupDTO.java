@@ -32,6 +32,12 @@ public class MemberSignupDTO {
   
   @NotBlank(message = "성별은 필수로 입력해 주세요.")
   private String gender;
+  
+  @NotBlank
+  private String question;
+  
+  @NotBlank(message="답변은 30자 이내로 작성해 주세요.")
+  private String answer;
 
   public String getEmail() {
       return email;
@@ -81,6 +87,22 @@ public class MemberSignupDTO {
       this.gender = gender;
   }
 
+  public String getAnswer() {
+    return answer;
+  }
+
+  public void setAnswer(String answer) {
+    this.answer = answer;
+  }
+
+  public String getQuestion() {
+    return question;
+  }
+
+  public void setQuestion(String question) {
+    this.question = question;
+  }
+
   @Override
   public String toString() {
       return "MemberRequestDto{" +
@@ -90,6 +112,8 @@ public class MemberSignupDTO {
               ", birth='" + birth + '\'' +
               ", phone_number='" + phone_number + '\'' +
               ", gender='" + gender + '\'' +
+              ", question='" + question + '\'' +
+              ", answer='" + answer + '\'' +
               '}';
   }
 }

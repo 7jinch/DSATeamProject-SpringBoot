@@ -43,11 +43,11 @@ public class Member {
   @Column(nullable=false)
   private String gender;
   
-//  @Column(nullable = false, length=30)
-//  private String question;
-//
-//  @Column(nullable = false, length=20)
-//  private String answer;
+  @Column(nullable = false, length=30)
+  private String question;
+
+  @Column(nullable = false, length=30)
+  private String answer;
 
   public Member(MemberSignupDTO signupMember) {
     this.email = signupMember.getEmail();
@@ -56,6 +56,8 @@ public class Member {
     this.birth = signupMember.getBirth();
     this.phone_number = signupMember.getPhone_number();
     this.gender = signupMember.getGender();
+    this.question = signupMember.getQuestion();
+    this.answer = signupMember.getAnswer();
     this.signupDate = LocalDate.now();
   }
   

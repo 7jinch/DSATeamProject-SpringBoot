@@ -56,7 +56,7 @@ public class AuthRestController {
       
       // jwt를 담는 쿠키를 생성: 쿠키의 이름은 token
       Cookie cookie = new Cookie("ourpreciousmember", jwt);
-      cookie.setHttpOnly(true);
+      cookie.setHttpOnly(false); // true로 하면 클라이언트에서 접근을 못 함
       cookie.setPath("/"); // 사이트의 모든 경로에서 유효함
       
       response.addCookie(cookie); // 생성한 쿠키를 응답에 추가
