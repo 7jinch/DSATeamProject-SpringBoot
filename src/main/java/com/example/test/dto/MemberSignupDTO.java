@@ -37,6 +37,7 @@ public class MemberSignupDTO {
   private String question;
   
   @NotBlank(message="답변은 30자 이내로 작성해 주세요.")
+  @Size(message="답변은 30자 이내로 작성해 주세요.")
   private String answer;
 
   public String getEmail() {

@@ -48,6 +48,9 @@ public class Member {
 
   @Column(nullable = false, length=30)
   private String answer;
+  
+  @Column(nullable = true)
+  private String messages;
 
   public Member(MemberSignupDTO signupMember) {
     this.email = signupMember.getEmail();
