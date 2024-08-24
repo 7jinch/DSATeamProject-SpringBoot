@@ -70,6 +70,7 @@ public class AuthRestController {
       
       Member member = memberService.findMemberByEmail(loginMember.getEmail());
       Map<String, String> memberMap = new HashMap<>();
+      memberMap.put("member_id", member.getMember_id().toString());
       memberMap.put("email", member.getEmail());
       memberMap.put("name", member.getName());
       memberMap.put("birth", member.getBirth().toString());
@@ -78,7 +79,7 @@ public class AuthRestController {
       memberMap.put("gender", member.getGender());
       memberMap.put("question", member.getQuestion());
       memberMap.put("answer", member.getAnswer());
-      memberMap.put("messages", member.getMessages());
+      memberMap.put("messages", member.getMessages().toString());
       
 //      return ResponseEntity.ok().build();
       return new ResponseEntity<>(memberMap, HttpStatus.OK);

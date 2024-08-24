@@ -9,6 +9,7 @@ import com.example.test.model.Member;
 import com.example.test.repository.MemberRepository;
 
 import jakarta.transaction.Transactional;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
@@ -79,5 +80,12 @@ public class MemberService {
           return "완료";
         }
     } else return "실패";
+  }
+
+  public Member findMemberById(@Valid Long member_id) {
+    Optional<Member> findMember = memberRepository.findById(member_id);
+    
+    if(findMember.isPresent()) return findMember.get();
+    else return null;
   }
 }
